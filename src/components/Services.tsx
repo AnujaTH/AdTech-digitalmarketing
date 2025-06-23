@@ -1,10 +1,37 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const strategySchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  company: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type StrategyForm = z.infer<typeof strategySchema>;
 
 const Services = () => {
   const { resolvedTheme } = useTheme();
   const revealRef = useScrollReveal<HTMLDivElement>();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const form = useForm<StrategyForm>({
+    resolver: zodResolver(strategySchema),
+  });
+  const onSubmit = (data: StrategyForm) => {
+    setSubmitted(true);
+    setTimeout(() => {
+      setModalOpen(false);
+      setSubmitted(false);
+      form.reset();
+    }, 2000);
+  };
 
   const services = [
     {
@@ -167,15 +194,88 @@ const Services = () => {
 
         <div className="text-center mt-12">
           <button
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => setModalOpen(true)}
             className="bg-navy-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy-700 transition-colors shadow-lg"
           >
             Get Custom Strategy
           </button>
+          <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+            <DialogContent>
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-4xl mb-4">🎉</div>
+                  <div className="text-xl font-bold mb-2 text-cyan-600">
+                    Thank you!
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300">
+                    We'll contact you soon with a custom strategy.
+                  </div>
+                </div>
+              ) : (
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-5"
+                >
+                  <h3 className="text-2xl font-bold mb-2 text-center text-navy-800 dark:text-cyan-400">
+                    Request a Custom Strategy
+                  </h3>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Name*"
+                      {...form.register("name")}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    />
+                    {form.formState.errors.name && (
+                      <span className="text-red-500 text-xs">
+                        {form.formState.errors.name.message}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Email*"
+                      {...form.register("email")}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    />
+                    {form.formState.errors.email && (
+                      <span className="text-red-500 text-xs">
+                        {form.formState.errors.email.message}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Company (optional)"
+                      {...form.register("company")}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    />
+                  </div>
+                  <div>
+                    <textarea
+                      placeholder="Message* (Describe your goals or challenges)"
+                      {...form.register("message")}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[90px]"
+                    />
+                    {form.formState.errors.message && (
+                      <span className="text-red-500 text-xs">
+                        {form.formState.errors.message.message}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-cyan-400 text-white py-3 rounded-lg font-semibold hover:bg-cyan-500 transition-colors shadow"
+                    disabled={form.formState.isSubmitting}
+                  >
+                    {form.formState.isSubmitting ? "Submitting..." : "Submit"}
+                  </button>
+                </form>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
@@ -183,3 +283,5 @@ const Services = () => {
 };
 
 export default Services;
+
+<style>{`.animate-fade-in{animation:fadeIn .7s cubic-bezier(.4,0,.2,1)}@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}`}</style>;

@@ -183,7 +183,7 @@ const Contact = ({ header }: ContactProps) => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-semibold mb-2">Phone</h4>
-                    <p className="text-blue-100">+94 766584872</p>
+                    <p className="text-blue-100">+94 76</p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Email</h4>
