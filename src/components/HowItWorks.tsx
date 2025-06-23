@@ -1,104 +1,132 @@
+import { useTheme } from "@/contexts/ThemeContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { motion } from "framer-motion";
+import { Briefcase, Lightbulb, Rocket, BarChart2 } from "lucide-react";
+
+const steps = [
+  {
+    title: "Discovery/Consultation",
+    description: "We understand your business, goals, and audience.",
+    icon: <Lightbulb className="w-8 h-8 text-cyan-400" />,
+  },
+  {
+    title: "Strategy Development",
+    description: "We craft a tailored digital marketing plan.",
+    icon: <Briefcase className="w-8 h-8 text-cyan-400" />,
+  },
+  {
+    title: "Campaign Launch",
+    description: "We execute campaigns across the right channels.",
+    icon: <Rocket className="w-8 h-8 text-cyan-400" />,
+  },
+  {
+    title: "Optimization & Reporting",
+    description: "We analyze, optimize, and report for growth.",
+    icon: <BarChart2 className="w-8 h-8 text-cyan-400" />,
+  },
+];
 
 const HowItWorks = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Strategy & Discovery",
-      description: "We dive deep into your tech product, target audience, and business goals to create a custom marketing strategy.",
-      details: [
-        "Technical product analysis",
-        "Market research & competitor analysis",
-        "Target audience identification",
-        "Custom strategy development"
-      ]
-    },
-    {
-      number: "02",
-      title: "Execution & Implementation",
-      description: "Our expert team implements your marketing strategy across all relevant channels with precision and technical expertise.",
-      details: [
-        "Content creation & optimization",
-        "Campaign setup & launch",
-        "Technical SEO implementation",
-        "Performance tracking setup"
-      ]
-    },
-    {
-      number: "03",
-      title: "Growth & Optimization",
-      description: "We continuously monitor, analyze, and optimize your campaigns to ensure maximum ROI and sustainable growth.",
-      details: [
-        "Real-time performance monitoring",
-        "Data-driven optimizations",
-        "Regular strategy refinements",
-        "Scalable growth implementation"
-      ]
-    }
-  ];
+  const { resolvedTheme } = useTheme();
+  const revealRef = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section id="how-it-works" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            How We Drive
-            <span className="text-gradient"> Tech Growth</span>
+    <section
+      id="how-it-works"
+      className={`py-20 ${
+        resolvedTheme === "dark" ? "bg-gray-900" : "bg-gray-50"
+      }`}
+    >
+      <div
+        ref={revealRef}
+        className="container mx-auto px-6 scroll-reveal relative"
+      >
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-2 text-navy-800 dark:text-white">
+            How It Works
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our proven 3-step process ensures your tech startup gets the marketing 
-            strategy and execution needed for sustainable growth.
+          <div className="flex justify-center mb-4">
+            <span className="inline-block w-20 h-1 rounded-full bg-cyan-400"></span>
+          </div>
+          <p
+            className={`text-xl max-w-2xl mx-auto ${
+              resolvedTheme === "dark" ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            Our proven digital marketing process delivers real results.
           </p>
         </div>
-
-        <div className="max-w-6xl mx-auto">
-          {steps.map((step, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center mb-16 last:mb-0">
-              {/* Step Number */}
-              <div className="flex-shrink-0 mb-8 lg:mb-0">
-                <div className="w-32 h-32 bg-gradient-to-br from-navy-500 to-navy-700 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl">
-                  {step.number}
-                </div>
+        <div className="flex flex-col md:flex-row gap-8 md:gap-6 justify-center items-stretch max-w-5xl mx-auto">
+          {steps.map((step, idx) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, delay: idx * 0.18 }}
+              whileHover={{
+                y: -8,
+                boxShadow: "0 8px 32px 0 rgba(6,182,212,0.10)",
+              }}
+              className={`flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center group relative transition-transform duration-300 cursor-pointer`}
+            >
+              <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-cyan-50 dark:bg-cyan-900 group-hover:scale-110 transition-transform">
+                {step.icon}
               </div>
-
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block flex-1 h-px bg-gradient-to-r from-navy-300 to-transparent mx-8"></div>
+              <h3
+                className={`text-lg font-bold mb-2 ${
+                  resolvedTheme === "dark" ? "text-white" : "text-gray-900"
+                }`}
+              >
+                {step.title}
+              </h3>
+              <p
+                className={`text-sm ${
+                  resolvedTheme === "dark" ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                {step.description}
+              </p>
+              {/* Animated connector for desktop */}
+              {idx < steps.length - 1 && (
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ duration: 0.7, delay: idx * 0.18 + 0.2 }}
+                  className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-1 bg-gradient-to-r from-cyan-400 to-transparent opacity-60 origin-left"
+                />
               )}
-
-              {/* Content */}
-              <div className={`flex-1 ${index % 2 === 0 ? 'lg:ml-12' : 'lg:mr-12 lg:order-first'}`}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                  <p className="text-gray-600 text-lg mb-6 leading-relaxed">{step.description}</p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {step.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-navy-600 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-700">{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Connector */}
-              {index < steps.length - 1 && (
-                <div className="lg:hidden w-px h-16 bg-gradient-to-b from-navy-300 to-transparent my-8"></div>
-              )}
-            </div>
+            </motion.div>
           ))}
         </div>
-
         <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-600 mb-6">
-              Join hundreds of tech startups that have transformed their growth with our proven methodology.
+          <div
+            className={`rounded-2xl p-8 shadow-lg max-w-2xl mx-auto ${
+              resolvedTheme === "dark" ? "bg-gray-800" : "bg-white"
+            }`}
+          >
+            <h3
+              className={`text-2xl font-bold mb-4 ${
+                resolvedTheme === "dark" ? "text-white" : "text-gray-900"
+              }`}
+            >
+              Ready to Get Started?
+            </h3>
+            <p
+              className={`mb-6 ${
+                resolvedTheme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              Join hundreds of businesses that have accelerated their growth
+              with our digital marketing expertise.
             </p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-navy-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy-700 transition-colors shadow-lg"
+            <button
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="bg-cyan-400 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cyan-500 transition-colors shadow"
             >
               Start Your Journey
             </button>

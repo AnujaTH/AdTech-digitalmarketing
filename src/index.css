@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -98,7 +97,29 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Smooth transitions for theme changes */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -106,11 +127,73 @@
   .gradient-bg {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #312e81 100%);
   }
-  
+
   .text-gradient {
     background: linear-gradient(135deg, #3b82f6, #1e40af);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Theme toggle animations */
+  .theme-toggle-icon {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .theme-toggle-icon:hover {
+    transform: scale(1.1);
+  }
+
+  /* Floating animation for background elements */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse animation for theme toggle */
+  @keyframes theme-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .theme-pulse {
+    animation: theme-pulse 2s ease-in-out infinite;
+  }
+
+  /* Enhanced button and link hover effects */
+  .animated-btn,
+  .btn,
+  button,
+  .link,
+  a {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s,
+      background 0.2s, color 0.2s;
+  }
+  .animated-btn:hover,
+  .btn:hover,
+  button:hover,
+  .link:hover,
+  a:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.08);
+    z-index: 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
