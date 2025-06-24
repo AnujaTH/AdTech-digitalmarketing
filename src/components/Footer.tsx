@@ -261,7 +261,11 @@ const Footer = () => {
               type="email"
               required
               placeholder="Your email address"
-              className="flex-1 px-3 sm:px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base"
+              className={`flex-1 px-3 sm:px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base ${
+                resolvedTheme === "dark"
+                  ? "bg-gray-800 text-white border-gray-700 placeholder-gray-400"
+                  : ""
+              }`}
               value={newsletterEmail}
               onChange={(e) => setNewsletterEmail(e.target.value)}
             />
