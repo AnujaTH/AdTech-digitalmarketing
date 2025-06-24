@@ -13,6 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
 import BlogPage from "./pages/BlogPage";
 import CareersPage from "./pages/CareersPage";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 // import AuthPage from './AuthPage';
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <FloatingWhatsApp />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<ContactPage />} />
