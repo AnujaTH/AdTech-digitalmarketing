@@ -111,16 +111,16 @@ const Services = () => {
 
   const getTitleClass = () => {
     if (resolvedTheme === "dark") {
-      return "text-4xl md:text-5xl font-bold text-white mb-6";
+      return "text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6";
     }
-    return "text-4xl md:text-5xl font-bold text-gray-900 mb-6";
+    return "text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6";
   };
 
   const getDescriptionClass = () => {
     if (resolvedTheme === "dark") {
-      return "text-xl text-gray-300 max-w-3xl mx-auto";
+      return "text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto";
     }
-    return "text-xl text-gray-600 max-w-3xl mx-auto";
+    return "text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto";
   };
 
   const getCardClass = () => {
@@ -132,29 +132,32 @@ const Services = () => {
 
   const getCardTitleClass = () => {
     if (resolvedTheme === "dark") {
-      return "text-xl font-bold text-white group-hover:text-cyan-400 transition-colors";
+      return "text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors";
     }
-    return "text-xl font-bold text-gray-900 group-hover:text-navy-600 transition-colors";
+    return "text-lg sm:text-xl font-bold text-gray-900 group-hover:text-navy-600 transition-colors";
   };
 
   const getCardContentClass = () => {
     if (resolvedTheme === "dark") {
-      return "text-gray-300 mb-6 leading-relaxed";
+      return "text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base";
     }
-    return "text-gray-600 mb-6 leading-relaxed";
+    return "text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base";
   };
 
   const getFeatureTextClass = () => {
     if (resolvedTheme === "dark") {
-      return "text-gray-300 text-sm";
+      return "text-gray-300 text-xs sm:text-sm";
     }
-    return "text-gray-700 text-sm";
+    return "text-gray-700 text-xs sm:text-sm";
   };
 
   return (
     <section id="services" className={getSectionClass()}>
-      <div ref={revealRef} className="container mx-auto px-6 scroll-reveal">
-        <div className="text-center mb-16">
+      <div
+        ref={revealRef}
+        className="container mx-auto px-4 sm:px-6 scroll-reveal"
+      >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className={getTitleClass()}>
             Marketing Services Built for
             <span className="text-gradient"> Tech Companies</span>
@@ -166,10 +169,10 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <Card key={index} className={getCardClass()}>
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-3 sm:pb-4">
                 <CardTitle className={getCardTitleClass()}>
                   {service.title}
                 </CardTitle>
@@ -192,31 +195,31 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10 sm:mt-12">
           <button
             onClick={() => setModalOpen(true)}
-            className="bg-navy-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy-700 transition-colors shadow-lg"
+            className="bg-navy-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-navy-700 transition-colors shadow-lg text-sm sm:text-base"
           >
             Get Custom Strategy
           </button>
           <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-            <DialogContent>
+            <DialogContent className="max-w-[95vw] sm:max-w-md">
               {submitted ? (
-                <div className="text-center py-12">
-                  <div className="text-4xl mb-4">🎉</div>
-                  <div className="text-xl font-bold mb-2 text-cyan-600">
+                <div className="text-center py-8 sm:py-12">
+                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🎉</div>
+                  <div className="text-lg sm:text-xl font-bold mb-2 text-cyan-600">
                     Thank you!
                   </div>
-                  <div className="text-gray-600 dark:text-gray-300">
+                  <div className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
                     We'll contact you soon with a custom strategy.
                   </div>
                 </div>
               ) : (
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-5"
+                  className="space-y-4 sm:space-y-5"
                 >
-                  <h3 className="text-2xl font-bold mb-2 text-center text-navy-800 dark:text-cyan-400">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2 text-center text-navy-800 dark:text-cyan-400">
                     Request a Custom Strategy
                   </h3>
                   <div>
@@ -224,7 +227,7 @@ const Services = () => {
                       type="text"
                       placeholder="Name*"
                       {...form.register("name")}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base"
                     />
                     {form.formState.errors.name && (
                       <span className="text-red-500 text-xs">
@@ -237,7 +240,7 @@ const Services = () => {
                       type="email"
                       placeholder="Email*"
                       {...form.register("email")}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base"
                     />
                     {form.formState.errors.email && (
                       <span className="text-red-500 text-xs">
@@ -250,14 +253,14 @@ const Services = () => {
                       type="text"
                       placeholder="Company (optional)"
                       {...form.register("company")}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base"
                     />
                   </div>
                   <div>
                     <textarea
                       placeholder="Message* (Describe your goals or challenges)"
                       {...form.register("message")}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[90px]"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[80px] sm:min-h-[90px] text-sm sm:text-base"
                     />
                     {form.formState.errors.message && (
                       <span className="text-red-500 text-xs">
@@ -267,7 +270,7 @@ const Services = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-cyan-400 text-white py-3 rounded-lg font-semibold hover:bg-cyan-500 transition-colors shadow"
+                    className="w-full bg-cyan-400 text-white py-2 sm:py-3 rounded-lg font-semibold hover:bg-cyan-500 transition-colors shadow text-sm sm:text-base"
                     disabled={form.formState.isSubmitting}
                   >
                     {form.formState.isSubmitting ? "Submitting..." : "Submit"}

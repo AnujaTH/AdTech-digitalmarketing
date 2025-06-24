@@ -176,30 +176,54 @@ const Contact = ({ header }: ContactProps) => {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <Card className="shadow-xl border-0 bg-gradient-to-br from-navy-500 to-navy-700 text-white">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-                <div className="space-y-6">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+                  Get in Touch
+                </h3>
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h4 className="font-semibold mb-2">Phone</h4>
-                    <p className="text-blue-100">+94 76</p>
+                    <h4 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                      Phone
+                    </h4>
+                    <p className="text-blue-100 text-sm sm:text-base">
+                      <a
+                        href="tel:+94766584872"
+                        className="hover:text-white transition-colors"
+                      >
+                        +94 
+                      </a>
+                    </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Email</h4>
-                    <p className="text-blue-100">hello@adtech.lk</p>
+                    <h4 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                      Email
+                    </h4>
+                    <p className="text-blue-100 text-sm sm:text-base">
+                      <a
+                        href="mailto:hello@adtech.lk"
+                        className="hover:text-white transition-colors"
+                      >
+                        hello@adtech.lk
+                      </a>
+                    </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Office</h4>
-                    <p className="text-blue-100">
+                    <h4 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                      Office
+                    </h4>
+                    <p className="text-blue-100 text-sm sm:text-base">
                       Jaffna, Northern Province
                       <br />
                       Sri Lanka 40000
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Business Hours</h4>
-                    <p className="text-blue-100">
+                    <h4 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                      Business Hours
+                    </h4>
+                    <p className="text-blue-100 text-sm sm:text-base">
                       Monday - Friday: 9:00 AM - 6:00 PM
                       <br />
                       Saturday: 10:00 AM - 4:00 PM
@@ -212,24 +236,30 @@ const Contact = ({ header }: ContactProps) => {
             </Card>
 
             <Card className={getWhyCardClass()}>
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <h3 className={getWhyTitleClass()}>Why Choose AdTech?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-navy-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className={getWhyTextClass()}>
+                    <span
+                      className={`${getWhyTextClass()} text-sm sm:text-base`}
+                    >
                       Free initial consultation and strategy assessment
                     </span>
                   </li>
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-navy-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className={getWhyTextClass()}>
+                    <span
+                      className={`${getWhyTextClass()} text-sm sm:text-base`}
+                    >
                       Specialized expertise in tech industry marketing
                     </span>
                   </li>
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-navy-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className={getWhyTextClass()}>
+                    <span
+                      className={`${getWhyTextClass()} text-sm sm:text-base`}
+                    >
                       Local presence with global marketing strategies
                     </span>
                   </li>

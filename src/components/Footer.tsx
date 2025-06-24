@@ -62,16 +62,20 @@ const Footer = () => {
   return (
     <footer className={`${getFooterClass()} py-16`}>
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">AdTech</h3>
-            <p className={`${getTextColor()} mb-6 leading-relaxed`}>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+              AdTech
+            </h3>
+            <p
+              className={`${getTextColor()} mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base`}
+            >
               Empowering tech startups and software companies with cutting-edge
               digital marketing strategies that drive real growth and
               sustainable success.
             </p>
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-3 sm:space-x-4 mb-4">
               {socialLinks.map((link, idx) => (
                 <a
                   key={idx}
@@ -82,7 +86,7 @@ const Footer = () => {
                   className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
                 >
                   <div
-                    className={`w-8 h-8 ${getSocialBg()} rounded-full flex items-center justify-center hover:bg-cyan-400 transition-colors`}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 ${getSocialBg()} rounded-full flex items-center justify-center hover:bg-cyan-400 transition-colors text-sm sm:text-base`}
                   >
                     {link.icon}
                   </div>
@@ -93,12 +97,14 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">
+              Services
+            </h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   SEO & Technical SEO
                 </a>
@@ -106,7 +112,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Content Marketing
                 </a>
@@ -114,7 +120,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Social Media Strategy
                 </a>
@@ -122,7 +128,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Paid Advertising
                 </a>
@@ -130,7 +136,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Lead Generation
                 </a>
@@ -138,7 +144,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Strategy Consulting
                 </a>
@@ -148,12 +154,14 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">
+              Company
+            </h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
                   to="/"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Home
                 </Link>
@@ -161,7 +169,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/services"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Services
                 </Link>
@@ -169,7 +177,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/blog"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Blog
                 </Link>
@@ -177,7 +185,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Contact
                 </Link>
@@ -185,7 +193,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/careers"
-                  className={`${getTextColor()} hover:text-cyan-400 transition-colors`}
+                  className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm sm:text-base`}
                 >
                   Careers
                 </Link>
@@ -195,24 +203,38 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
-            <div className="space-y-4">
+            <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">
+              Contact Info
+            </h4>
+            <div className="space-y-3 sm:space-y-4">
               <div>
-                <p className={getTextColor()}>
+                <p className={`${getTextColor()} text-sm sm:text-base`}>
                   Jaffna, Northern Province
                   <br />
                   Sri Lanka 40000
                 </p>
               </div>
               <div>
-                <p className={getTextColor()}>
-                  Phone: +94 766584872
+                <p className={`${getTextColor()} text-sm sm:text-base`}>
+                  Phone:{" "}
+                  <a
+                    href="tel:+94766584872"
+                    className="hover:text-cyan-400 transition-colors"
+                  >
+                    +94 766 584 872
+                  </a>
                   <br />
-                  Email: hello@adtech.lk
+                  Email:{" "}
+                  <a
+                    href="mailto:hello@adtech.lk"
+                    className="hover:text-cyan-400 transition-colors"
+                  >
+                    hello@adtech.lk
+                  </a>
                 </p>
               </div>
               <div>
-                <p className={getTextColor()}>
+                <p className={`${getTextColor()} text-sm sm:text-base`}>
                   Mon-Fri: 9:00 AM - 6:00 PM
                   <br />
                   Sat: 10:00 AM - 4:00 PM
@@ -223,9 +245,9 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="max-w-xl mx-auto mb-10">
+        <div className="max-w-xl mx-auto mb-8 sm:mb-10">
           <form
-            className="flex flex-col sm:flex-row items-center gap-4 bg-white/10 p-6 rounded-lg shadow-md"
+            className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-white/10 p-4 sm:p-6 rounded-lg shadow-md"
             onSubmit={(e) => {
               e.preventDefault();
               toast({
@@ -239,13 +261,13 @@ const Footer = () => {
               type="email"
               required
               placeholder="Your email address"
-              className="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="flex-1 px-3 sm:px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm sm:text-base"
               value={newsletterEmail}
               onChange={(e) => setNewsletterEmail(e.target.value)}
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded font-semibold shadow hover:from-blue-600 hover:to-cyan-400 transition-all"
+              className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-4 sm:px-6 py-2 rounded font-semibold shadow hover:from-blue-600 hover:to-cyan-400 transition-all text-sm sm:text-base w-full sm:w-auto"
             >
               Subscribe
             </button>
@@ -253,27 +275,29 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className={`border-t ${getBorderColor()} pt-8`}>
+        <div className={`border-t ${getBorderColor()} pt-6 sm:pt-8`}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className={`${getTextColor()} mb-4 md:mb-0`}>
+            <div
+              className={`${getTextColor()} mb-4 md:mb-0 text-sm sm:text-base`}
+            >
               <p>&copy; 2025 AdTech. All rights reserved.</p>
             </div>
             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
               <Link
                 to="/privacy-policy"
-                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm`}
+                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-xs sm:text-sm`}
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm`}
+                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-xs sm:text-sm`}
               >
                 Terms of Service
               </Link>
               <Link
                 to="/cookies"
-                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-sm`}
+                className={`${getTextColor()} hover:text-cyan-400 transition-colors text-xs sm:text-sm`}
               >
                 Cookie Policy
               </Link>

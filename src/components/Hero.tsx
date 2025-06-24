@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { resolvedTheme } = useTheme();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,6 +47,60 @@ const Hero = () => {
     <section
       className={`min-h-screen flex items-center justify-center relative ${getBackgroundClass()} ${getTextColor()} overflow-hidden`}
     >
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-white dark:bg-gray-900 bg-opacity-95 flex flex-col">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-gray-800">
+            <span className="font-extrabold tracking-widest uppercase text-lg text-gray-900 dark:text-white">
+              ADTECH
+            </span>
+            <button
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+          </div>
+          <nav className="flex flex-col gap-2 px-6 py-8 text-lg font-semibold">
+            <Link
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              to="/services"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              Services
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              Contact
+            </Link>
+            <Link
+              to="/careers"
+              onClick={() => setMenuOpen(false)}
+              className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              Careers
+            </Link>
+          </nav>
+        </div>
+      )}
       {/* Animated Floating Background Shapes */}
       <svg
         className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
@@ -81,25 +138,33 @@ const Hero = () => {
 
       {/* Header */}
       <header
-        className={`absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center z-30 ${getHeaderClass()}`}
+        className={`absolute top-0 left-0 w-full px-4 sm:px-6 md:px-8 py-3 md:py-4 flex justify-between items-center z-30 ${getHeaderClass()}`}
       >
-        <div className="flex items-center gap-3 text-3xl font-extrabold tracking-widest">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Hamburger menu for mobile */}
+          <button
+            className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu size={28} />
+          </button>
           {/* Logo mark */}
           <img
             src="/favicon.jpg"
             alt="AdTech Logo"
-            className="w-10 h-10 rounded-full bg-white border border-gray-200 dark:border-gray-800"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border border-gray-200 dark:border-gray-800 flex-shrink-0"
           />
-          {/* Wide company name */}
+          {/* Company name - responsive text sizing */}
           <span
-            className="font-extrabold tracking-widest uppercase text-gray-900 dark:text-white"
-            style={{ letterSpacing: "0.2em" }}
+            className="font-extrabold tracking-widest uppercase text-gray-900 dark:text-white text-lg sm:text-xl md:text-2xl lg:text-3xl"
+            style={{ letterSpacing: "0.1em" }}
           >
             ADTECH
           </span>
         </div>
 
-        {/* Company Nav */}
+        {/* Company Nav - hidden on mobile */}
         <div className="hidden md:flex gap-8 text-sm font-medium">
           {[
             { to: "/", label: "Home" },
@@ -123,9 +188,9 @@ const Hero = () => {
         </div>
 
         {/* Right side buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <ThemeToggle />
-          {/* SVG Animation */}
+          {/* SVG Animation - hidden on mobile */}
           <span className="hidden md:inline-flex items-center">
             <svg
               width="32"
@@ -147,24 +212,25 @@ const Hero = () => {
               <rect x="15" y="20" width="2" height="2" rx="1" fill="#06b6d4" />
             </svg>
           </span>
+          {/* Responsive button text */}
           <Button
-            className={`bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg hover:from-blue-600 hover:to-cyan-400 transition-all text-base md:text-lg animate-bounce`}
+            className={`bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-bold px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-xl shadow-lg hover:from-blue-600 hover:to-cyan-400 transition-all text-xs sm:text-sm md:text-base lg:text-lg animate-bounce whitespace-nowrap`}
             onClick={() => window.open("https://calendly.com/", "_blank")}
           >
-            Book Free Strategy Call
+            {isMobile ? "Free Call" : "Book Free Strategy Call"}
           </Button>
         </div>
       </header>
 
       {/* Hero Content + Animation */}
-      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 flex flex-col-reverse md:flex-row items-center justify-between relative z-10 pt-20 md:pt-0">
         {/* Left: Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight tracking-tight"
             style={{ lineHeight: 1.1 }}
           >
             <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient-x">
@@ -175,7 +241,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={`text-lg sm:text-xl md:text-2xl mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed ${
+            className={`text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed ${
               resolvedTheme === "dark" ? "text-blue-100" : "text-gray-700"
             }`}
           >
@@ -192,7 +258,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-14"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start items-center mb-10 sm:mb-12 md:mb-14"
           >
             <Button
               size="lg"
@@ -200,7 +266,7 @@ const Hero = () => {
                 resolvedTheme === "dark"
                   ? "bg-white text-gray-900 hover:bg-blue-100"
                   : "bg-blue-600 text-white hover:bg-blue-700"
-              } px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-200`}
+              } px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-xl transition-all duration-200 w-full sm:w-auto`}
               onClick={() =>
                 document
                   .getElementById("contact")
@@ -216,7 +282,7 @@ const Hero = () => {
                 resolvedTheme === "dark"
                   ? "bg-gray-900 text-cyan-300 border-cyan-700 hover:bg-cyan-950 hover:text-white hover:border-cyan-400"
                   : "bg-white text-gray-900 border-gray-300 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-400"
-              } px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-200 border-2 animate-fade-in`}
+              } px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-xl transition-all duration-200 border-2 animate-fade-in w-full sm:w-auto`}
               onClick={() =>
                 document
                   .getElementById("how-it-works")
@@ -232,7 +298,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0"
+          className="w-full md:w-1/2 flex justify-center mb-8 sm:mb-10 md:mb-0"
         >
           <svg
             width="340"
@@ -240,7 +306,7 @@ const Hero = () => {
             viewBox="0 0 340 340"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="max-w-xs md:max-w-md"
+            className="w-64 h-64 sm:w-80 sm:h-80 md:max-w-md"
           >
             <circle
               cx="170"
