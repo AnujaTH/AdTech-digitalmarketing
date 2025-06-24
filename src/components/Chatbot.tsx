@@ -98,7 +98,8 @@ const Chatbot = () => {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-2xl md:text-3xl"
+          className="w-14 h-14 md:w-14 md:h-14 rounded-full bg-navy-600 hover:bg-navy-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-2xl md:text-3xl"
+          style={{ width: 56, height: 56 }}
         >
           {isOpen ? "×" : "💬"}
         </Button>
@@ -106,14 +107,11 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div
-          className="fixed bottom-24 right-4 z-50 w-full max-w-[95vw] md:max-w-xs min-h-[300px] flex flex-col"
-          style={{ maxWidth: 350 }}
-        >
+        <div className="fixed bottom-24 right-4 z-50 w-full max-w-[95vw] md:w-[360px] md:h-[420px] rounded-xl flex flex-col">
           <Card
-            className={`shadow-2xl border-0 ${cardBg} rounded-b-lg flex flex-col h-full overflow-hidden`}
+            className={`shadow-2xl border-0 ${cardBg} rounded-xl flex flex-col h-full overflow-hidden`}
           >
-            <CardHeader className={`${headerBg} rounded-t-lg p-3`}>
+            <CardHeader className={`${headerBg} rounded-t-xl p-3`}>
               <CardTitle className="text-base">
                 AdTech Support
                 <span className="block text-xs font-normal text-blue-100">
@@ -124,7 +122,10 @@ const Chatbot = () => {
 
             <CardContent className="p-0 flex flex-col flex-1 h-full">
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-2 space-y-2 text-xs">
+              <div
+                className="flex-1 overflow-y-auto p-2 space-y-2 text-xs"
+                style={{ maxHeight: 280 }}
+              >
                 {messages.map((msg, index) => (
                   <div
                     key={index}
