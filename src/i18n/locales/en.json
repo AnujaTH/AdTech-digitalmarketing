@@ -1,0 +1,182 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "readMore": "Read More"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy"
+  },
+  "hero": {
+    "title": "Empower Your Tech Startup",
+    "subtitle": "AdTech fuels the growth of innovative startups in Jaffna and beyond through cutting-edge digital marketing solutions.",
+    "cta": "Start Your Journey",
+    "learnMore": "Learn How It Works"
+  },
+  "about": {
+    "title": "Empowering Tech Innovation in Jaffna & Beyond",
+    "description": "At AdTech, we understand the unique challenges faced by tech startups, freelance developers, and software companies. Our mission is to bridge the gap between innovative technology and market success through strategic digital marketing.",
+    "techFirst": {
+      "title": "Tech-First Approach",
+      "description": "We speak your language and understand the technical complexities of your products."
+    },
+    "localExpertise": {
+      "title": "Local Expertise",
+      "description": "Deep understanding of the Sri Lankan tech ecosystem and regional market dynamics."
+    },
+    "growthDriven": {
+      "title": "Growth-Driven",
+      "description": "Every strategy is designed with scalability and sustainable growth in mind."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To become the leading digital marketing partner for tech startups across Sri Lanka, helping innovative companies transform their groundbreaking ideas into market leaders."
+    }
+  },
+  "services": {
+    "title": "Marketing Services Built for Tech Companies",
+    "subtitle": "Comprehensive digital marketing solutions designed specifically for the unique needs of tech startups, developers, and software companies.",
+    "seo": {
+      "title": "SEO & Technical SEO",
+      "description": "Optimize your tech products for search engines with advanced technical SEO strategies tailored for software companies.",
+      "features": [
+        "Technical site audits",
+        "Developer-friendly implementations",
+        "API documentation optimization",
+        "Performance optimization"
+      ]
+    },
+    "content": {
+      "title": "Content Marketing",
+      "description": "Create compelling technical content that resonates with developers, CTOs, and tech decision-makers.",
+      "features": [
+        "Technical blog writing",
+        "Case study development",
+        "Whitepaper creation",
+        "Developer documentation"
+      ]
+    },
+    "social": {
+      "title": "Social Media Strategy",
+      "description": "Build your tech brand presence on platforms where developers and tech leaders engage.",
+      "features": [
+        "LinkedIn B2B campaigns",
+        "Twitter tech community engagement",
+        "GitHub showcase optimization",
+        "Tech forum participation"
+      ]
+    },
+    "ads": {
+      "title": "Paid Advertising",
+      "description": "Targeted ad campaigns designed to reach tech professionals and potential enterprise clients.",
+      "features": [
+        "Google Ads for SaaS",
+        "LinkedIn B2B advertising",
+        "Retargeting campaigns",
+        "Conversion optimization"
+      ]
+    },
+    "leads": {
+      "title": "Lead Generation",
+      "description": "Generate high-quality leads from tech companies, startups, and enterprise clients.",
+      "features": [
+        "B2B lead funnels",
+        "Tech conference marketing",
+        "Webinar campaigns",
+        "Free trial optimization"
+      ]
+    },
+    "consulting": {
+      "title": "Strategy Consulting",
+      "description": "Comprehensive marketing strategy consulting specifically for tech startups and software companies.",
+      "features": [
+        "Go-to-market strategy",
+        "Product launch planning",
+        "Market positioning",
+        "Competitive analysis"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "Transparent Pricing for Every Stage",
+    "subtitle": "Choose the perfect plan for your startup's growth journey",
+    "starter": {
+      "name": "Starter",
+      "price": "Rs. 14,900",
+      "period": "/month",
+      "description": "Perfect for early-stage startups and freelance developers in Sri Lanka",
+      "cta": "Start Growing"
+    },
+    "growth": {
+      "name": "Growth",
+      "price": "Rs. 34,900",
+      "period": "/month",
+      "description": "Ideal for scaling startups and growing software companies",
+      "cta": "Scale Your Business"
+    },
+    "scale": {
+      "name": "Scale",
+      "price": "Rs. 59,900",
+      "period": "/month",
+      "description": "Comprehensive solution for established tech companies",
+      "cta": "Accelerate Growth"
+    }
+  },
+  "contact": {
+    "title": "Ready to Transform Your Tech Business?",
+    "subtitle": "Get in touch with our team of digital marketing experts. Let's discuss how we can accelerate your startup's growth.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "service": "Service Interest",
+      "message": "Tell us about your project",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "address": "Jaffna, Sri Lanka",
+      "phone": "+94 766584872",
+      "email": "hello@adtech.lk",
+      "hours": "Mon - Fri: 9:00 AM - 6:00 PM"
+    }
+  },
+  "footer": {
+    "description": "Empowering tech startups in Sri Lanka with strategic digital marketing solutions.",
+    "services": "Services",
+    "company": "Company",
+    "legal": "Legal",
+    "social": "Follow Us",
+    "copyright": "© 2024 AdTech. All rights reserved."
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English",
+    "sinhala": "සිංහල",
+    "tamil": "தமிழ்"
+  }
+} 

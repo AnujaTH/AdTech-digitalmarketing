@@ -205,7 +205,7 @@ const Contact = ({ header }: ContactProps) => {
                         href="mailto:hello@adtech.lk"
                         className="hover:text-white transition-colors"
                       >
-                        hello@adtech.lk
+                        helloadtech@gmail.com
                       </a>
                     </p>
                   </div>

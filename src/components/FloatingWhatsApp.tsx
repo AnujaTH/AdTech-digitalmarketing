@@ -22,7 +22,7 @@ const FloatingWhatsApp: React.FC = () => (
       alignItems: "center",
       justifyContent: "center",
       boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-      transition: "box-shadow 0.2s",
+      transition: "box-shadow 0.2s",   
     }}
   >
     <svg

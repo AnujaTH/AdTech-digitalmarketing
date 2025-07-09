@@ -221,7 +221,7 @@ const Footer = () => {
                     href="tel:+94766584872"
                     className="hover:text-cyan-400 transition-colors"
                   >
-                    +94 766 584 872
+                   
                   </a>
                   <br />
                   Email:{" "}
@@ -229,8 +229,7 @@ const Footer = () => {
                     href="mailto:hello@adtech.lk"
                     className="hover:text-cyan-400 transition-colors"
                   >
-                    hello@adtech.lk
-                  </a>
+                    helloadtech@gmail.com                  </a>
                 </p>
               </div>
               <div>

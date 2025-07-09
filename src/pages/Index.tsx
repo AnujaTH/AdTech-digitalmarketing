@@ -4,7 +4,7 @@ import About from "@/components/About";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
-import Chatbot from "@/components/Chatbot";
+// import Chatbot from "@/components/Chatbot";
 
 // import AuthPage from "@/components/login";
 
@@ -18,7 +18,6 @@ const Index = () => {
       <HowItWorks />
       <Pricing />
       <Footer />
-      <Chatbot />
       {/* <AuthPage/> */}
     </div>
   );

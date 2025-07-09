@@ -6,6 +6,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,6 +16,8 @@ const Hero = () => {
   const navigate = useNavigate();
   const { resolvedTheme } = useTheme();
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -68,35 +73,35 @@ const Hero = () => {
               onClick={() => setMenuOpen(false)}
               className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
             >
-              Home
+              {t('navigation.home')}
             </Link>
             <Link
               to="/services"
               onClick={() => setMenuOpen(false)}
               className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
             >
-              Services
+              {t('navigation.services')}
             </Link>
             <Link
               to="/blog"
               onClick={() => setMenuOpen(false)}
               className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
             >
-              Blog
+              {t('navigation.blog')}
             </Link>
             <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
               className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
             >
-              Contact
+              {t('navigation.contact')}
             </Link>
             <Link
               to="/careers"
               onClick={() => setMenuOpen(false)}
               className="py-3 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
             >
-              Careers
+              {t('navigation.careers')}
             </Link>
           </nav>
         </div>
@@ -167,11 +172,11 @@ const Hero = () => {
         {/* Company Nav - hidden on mobile */}
         <div className="hidden md:flex gap-8 text-sm font-medium">
           {[
-            { to: "/", label: "Home" },
-            { to: "/services", label: "Services" },
-            { to: "/blog", label: "Blog" },
-            { to: "/contact", label: "Contact" },
-            { to: "/careers", label: "Careers" },
+            { to: "/", label: t('navigation.home') },
+            { to: "/services", label: t('navigation.services') },
+            { to: "/blog", label: t('navigation.blog') },
+            { to: "/contact", label: t('navigation.contact') },
+            { to: "/careers", label: t('navigation.careers') },
           ].map((item, idx) => (
             <Link
               key={idx}
@@ -189,6 +194,7 @@ const Hero = () => {
 
         {/* Right side buttons */}
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+          <LanguageSwitcher />
           <ThemeToggle />
           {/* SVG Animation - hidden on mobile */}
           <span className="hidden md:inline-flex items-center">
@@ -234,7 +240,7 @@ const Hero = () => {
             style={{ lineHeight: 1.1 }}
           >
             <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-fuchsia-500 bg-clip-text text-transparent animate-gradient-x">
-              Empower Your Tech Startup
+              {t("hero.title")}
             </span>
           </motion.h1>
           <motion.p
@@ -246,12 +252,7 @@ const Hero = () => {
             }`}
           >
             <span className="inline-block animate-fade-in">
-              AdTech fuels the growth of innovative startups in Jaffna and
-              beyond through{" "}
-              <span className="font-semibold text-cyan-500">
-                cutting-edge digital marketing
-              </span>{" "}
-              solutions.
+              {t("hero.subtitle")}
             </span>
           </motion.p>
           <motion.div
@@ -273,7 +274,7 @@ const Hero = () => {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Let's Grow Together
+              {t("hero.cta")}
             </Button>
             <Button
               variant="outline"
@@ -289,7 +290,7 @@ const Hero = () => {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              See How It Works
+              {t("hero.learnMore")}
             </Button>
           </motion.div>
         </div>

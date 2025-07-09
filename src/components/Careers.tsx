@@ -122,13 +122,19 @@ const Careers = () => {
     >
       <div ref={revealRef} className="container mx-auto px-4 scroll-reveal">
         <div className="text-center mb-6">
-          <h2
+          {/* <h2
             className={`text-3xl md:text-4xl font-bold mb-2 ${
               resolvedTheme === "dark" ? "text-white" : "text-gray-900"
             }`}
           >
             Join Us
-          </h2>
+          </h2> */}
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+            {/* <span className="inline-block w-2 h-8 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full mr-2"></span> */}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+             Join Us
+            </span>
+          </h3>
           <p
             className={`text-base mb-4 ${
               resolvedTheme === "dark" ? "text-gray-300" : "text-gray-600"
@@ -153,28 +159,28 @@ const Careers = () => {
                 <span className="font-semibold text-base flex items-center gap-2">
                   {/* Job type icon */}
                   {job.title.includes("Marketing") && (
-                    <span className="text-lg">📢</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("Social Media") && (
-                    <span className="text-lg">💬</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("Content") && (
-                    <span className="text-lg">✍️</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("SEO") && (
-                    <span className="text-lg">🔍</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("PPC") && (
-                    <span className="text-lg">💸</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("Graphic") && (
-                    <span className="text-lg">🎨</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("Email") && (
-                    <span className="text-lg">📧</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title.includes("Analyst") && (
-                    <span className="text-lg">📊</span>
+                    <span className="text-lg"></span>
                   )}
                   {job.title}
                 </span>
@@ -210,7 +216,7 @@ const Careers = () => {
         {/* Interview Process Section */}
         <div className="max-w-4xl mx-auto mb-8">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
-            <span className="inline-block w-2 h-8 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full mr-2"></span>
+            {/* <span className="inline-block w-2 h-8 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full mr-2"></span> */}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
               Our Interview Process
             </span>

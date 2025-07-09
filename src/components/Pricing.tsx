@@ -69,7 +69,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Starter",
-      price: "Rs. 24,900",
+      price: "Rs. 14,900",
       period: "/month",
       description:
         "Perfect for early-stage startups and freelance developers in Sri Lanka",
@@ -86,7 +86,7 @@ const Pricing = () => {
     },
     {
       name: "Growth",
-      price: "Rs. 54,900",
+      price: "Rs. 34,900",
       period: "/month",
       description: "Ideal for scaling startups and growing software companies",
       features: [
@@ -104,7 +104,7 @@ const Pricing = () => {
     },
     {
       name: "Scale",
-      price: "Rs. 79,900",
+      price: "Rs. 59,900",
       period: "/month",
       description: "Comprehensive solution for established tech companies",
       features: [
